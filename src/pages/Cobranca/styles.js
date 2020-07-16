@@ -8,27 +8,6 @@ export default StyleSheet.create({
         backgroundColor: '#F5F5F5'
     },
 
-    buttons: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-    },
-
-    buttonNew:{
-        backgroundColor: '#9c0000',
-        padding: 20,
-        margin: 10,
-        borderRadius: 8,
-        alignItems: 'center',
-        width: '45%',
-      },
-    
-      textButtonNew: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginTop: 3,
-      },
-
     buttonProp: {
         backgroundColor: 'white',
         padding: 30,

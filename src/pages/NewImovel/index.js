@@ -40,6 +40,9 @@ export default function NewImovel() {
                     <Text style={styles.label}>Situação:</Text>
                     <TextInput style={styles.inputLabel}/>
 
+                    <Text style={styles.label}>Início da dívida:</Text>
+                    <TextInput style={styles.inputLabel}/>
+
                     <Text style={styles.label}>Anotação:</Text>
                     <TextInput style={styles.inputAnot}/>
 

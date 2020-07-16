@@ -23,148 +23,16 @@ export default function Imoveis() {
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Registros")}
                 >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
+                    <Text style={styles.textButtonProp}>Imovel Nº 141</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
+                    <Text style={styles.textButtonProp}>Imovel Imovel Nº 141 1ºA</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel A</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel B</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Imovel C</Text>
-                </TouchableOpacity>
             </ScrollView>
         </View>
     )

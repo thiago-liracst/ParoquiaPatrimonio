@@ -10,7 +10,15 @@ export default StyleSheet.create({
 
     box: {
         width: '91%',
-        height: 700,
+        height: 760,
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        margin: 10,
+    },
+
+    boxDividas: {
+        width: '91%',
+        height: 900,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
@@ -40,6 +48,17 @@ export default StyleSheet.create({
 
     buttonEditar: {
         backgroundColor: '#9c0000',
+        padding: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 20,
+        borderRadius: 8,
+        width: '96%',
+        alignItems: 'center',
+    },
+
+    buttonPagamento: {
+        backgroundColor: '#f5f5f5',
         padding: 10,
         marginLeft: 10,
         marginRight: 10,
@@ -87,6 +106,14 @@ export default StyleSheet.create({
         marginLeft: 10,
     },
 
+    boxNewRegistro: {
+        backgroundColor: '#F5F5F5',
+        padding: 20,
+        borderRadius: 8,
+        marginLeft:10,
+        marginRight: 10,
+    },
+
     newRegis: {
         backgroundColor: '#F5F5F5',
         padding: 20,
@@ -117,6 +144,13 @@ export default StyleSheet.create({
         width: '19%',
         borderRadius: 5,
         alignItems: 'center'
+    },
+
+    inputAnot: {
+        backgroundColor: '#FFF',
+        padding: 60,
+        margin: 10,
+        borderRadius: 8,
     },
 
     textButtonRegis: {

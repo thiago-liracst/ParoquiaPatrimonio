@@ -23,127 +23,86 @@ export default function Proprietarios() {
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
+                    <Text style={styles.textButtonProp}>ALICE MARIA DA CONCEIÇÃO</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
+                    <Text style={styles.textButtonProp}>JOSÉ JACINTO DE OLIVEIRA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
+                    <Text style={styles.textButtonProp}>ANDERSO CLEITON BATISTA DE OLIVEIRA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
+                    <Text style={styles.textButtonProp}>JOSÉ FIDELIS FILHO</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
+                    <Text style={styles.textButtonProp}>MARIA CRISTINA BARBOSA DA SILVA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
+                    <Text style={styles.textButtonProp}>ANTONIO RAMALHO DE FREITAS</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
+                    <Text style={styles.textButtonProp}>ANTONIO MENDONÇA DA COSTA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
+                    <Text style={styles.textButtonProp}>PEDRO FERREIRA DE LIMA </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
+                    <Text style={styles.textButtonProp}>MARIA FELIX DA SILVA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
+                    <Text style={styles.textButtonProp}>MANOEL TEODOSIO DA SILVA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
+                    <Text style={styles.textButtonProp}>JOSÉ AVELINO DA SILVA</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.buttonProp} 
                     onPress={() => navigation.navigate("Imoveis")}
                 >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
+                    <Text style={styles.textButtonProp}>LUIS DOS SANTOS</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Fulano</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Ciclano</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                    style={styles.buttonProp} 
-                    onPress={() => navigation.navigate("Imoveis")}
-                >
-                    <Text style={styles.textButtonProp}>Beltrano</Text>
-                </TouchableOpacity>
             </ScrollView>
         </View>    
     )

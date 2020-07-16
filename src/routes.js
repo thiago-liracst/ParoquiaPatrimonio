@@ -10,6 +10,8 @@ import Imoveis from './pages/Imoveis';
 import Registros from './pages/Registros';
 import NewImovel from './pages/NewImovel';
 import UpdateImovel from './pages/UpdateImovel';
+import Pagamento from './pages/Pagamento';
+import Cobranca from './pages/Cobranca';
 
 export default function Routes() {
     return(
@@ -23,6 +25,8 @@ export default function Routes() {
                 <AppStack.Screen name="Registros" component={Registros}/>
                 <AppStack.Screen name="NewImovel" component={NewImovel}/>
                 <AppStack.Screen name="UpdateImovel" component={UpdateImovel}/>
+                <AppStack.Screen name="Pagamento" component={Pagamento}/>
+                <AppStack.Screen name="Cobranca" component={Cobranca}/>
             </AppStack.Navigator>
         </NavigationContainer>
     )
