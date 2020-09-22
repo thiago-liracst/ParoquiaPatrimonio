@@ -40,6 +40,16 @@ module.exports = {
         }
     },
 
+    async getImovel(request, response){
+        try {
+            const {id} = request.body;
+            const imovel = await connection('imoveis').select('*').where('id', id).first();
+            return response.json(imovel);
+        } catch (error) {
+            return response.json(error);
+        }
+    },
+
     async cobrancas(request, response){
         try {
             const mes = request.body.mes;

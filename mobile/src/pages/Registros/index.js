@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-
-export default function Registro() {
+import api from '../../../services/api';
+export default function Registro({route, navigation}) {
     
-    const navigation = useNavigation();
+    useEffect(() => {
+        loadImovel();
+    }, []);
+    //const navigation = useNavigation();
+    const {id} = route.params;
+
+    const [imovel, setImovel] = useState({rua: "="});
 
     const [ano, setAno] = useState();
     const [regis, setRegis] = useState();
 
+    const loadImovel = async () => {
+        const response = await api.post("/imovel", {id: id});
+        setImovel(response.data);
+        console.log(response.data);
+    }
+
     return(
-        <View style={styles.container}>
+        <View style={styles.container} extraData={imovel}>
             
             <TouchableOpacity 
                 style={styles.buttonProp} 
@@ -25,23 +37,23 @@ export default function Registro() {
 
                     <Text style={styles.label}>Rua:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>ANTONIO DAVILA LINS</Text>
+                        <Text style={styles.infoText}>{imovel.rua}</Text>
                     </View>
                     <Text style={styles.label}>Nº:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>415</Text>
+                        <Text style={styles.infoText}>{imovel.num}</Text>
                     </View>
                     <Text style={styles.label}>Local do terreno:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>SITIO MARIBONDO</Text>
+                        <Text style={styles.infoText}>{imovel.local}</Text>
                     </View>
                     <Text style={styles.label}>Tamanho:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>30 X 40</Text>
+                        <Text style={styles.infoText}>{imovel.tamanho}</Text>
                     </View>
                     <Text style={styles.label}>Proprietário:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>JOSÉ FRANCISCO DA S. SIMPLICIO </Text>
+                        <Text style={styles.infoText}>{imovel.proprietario}</Text>
                     </View>
                     <Text style={styles.label}>Situação:</Text>
                     <View style={styles.infoView}>
@@ -49,7 +61,7 @@ export default function Registro() {
                     </View>
                     <Text style={styles.label}>Inicio da dívida:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>1992</Text>
+                        <Text style={styles.infoText}>{imovel.inicio}</Text>
                     </View>
 
                     <TouchableOpacity 
@@ -63,13 +75,7 @@ export default function Registro() {
                 <View style={styles.boxAnot}>
                     <Text style={styles.label}>Anotação:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>IMPOSTO DE LAUDEMIO -
-                            VENDEDOR; BANCO BRADESCO S/A
-                            COMPRADOR; ANTONIO RAMALHO DE FREITAS
-                            VALOR AVALIDO 25.900,00
-                            VALOR PAGO:647,00
-                            20/02/2019.
-                        </Text>
+                        <Text style={styles.infoText}>{imovel.anotacao}</Text>
                     </View>
                 </View>
 
