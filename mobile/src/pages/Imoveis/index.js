@@ -5,13 +5,11 @@ import {FlatList} from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-import { useNavigation } from '@react-navigation/native';
 
 import api from '../../../services/api';
 
 export default function Imoveis({route, navigation}) {
     
-    //const navigation = useNavigation();
     const proprietario = route.params.proprietario;
 
     const [imoveis, setImoveis] = useState([]);

@@ -9,18 +9,19 @@ import { useNavigation } from '@react-navigation/native';
 
 import api from '../../../services/api';
 
-export default function Proprietarios() {
+export default function Proprietarios({route, navigation}) {
     
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
     const [imoveis, setImoveis] = useState([]);
     const [proprietarios, setProprietarios] = useState([]);
+    const {rua} = route.params;
 
     const loadProprietarios = async () => {
         const response = await api.get('/imoveis');
         setImoveis(response.data);
         imoveis.map((imovel) => {
-            if (!proprietarios.includes(imovel.proprietario)) {
+            if (!proprietarios.includes(imovel.proprietario) && imovel.rua === rua) {
                 proprietarios.push(imovel.proprietario);
             }
         })

@@ -10,6 +10,7 @@ routes.get('/imoveis', ImoveisController.list);
 routes.put('/imoveis', ImoveisController.update);
 routes.post('/imoveis/delete', ImoveisController.delete);
 routes.post('/imovel', ImoveisController.getImovel);
+routes.post('/imoveis/updateAll', ImoveisController.updateAll);
 
 routes.post('/registros', RegistrosConstroller.create);
 routes.get('/registros', RegistrosConstroller.list);

@@ -75,6 +75,37 @@ module.exports = {
         }
     },
 
+    async updateAll(request, response){
+        try {
+            const {
+                id,
+                rua,
+                num,
+                local,
+                tamanho,
+                proprietario,
+                situacao,
+                inicio,
+                anotacao,
+            } = request.body;
+            await connection('imoveis')
+                .where('id', id)
+                .update({
+                    rua,
+                    num,
+                    local,
+                    tamanho,
+                    proprietario,
+                    situacao,
+                    inicio,
+                    anotacao,
+            });
+            return response.json("Sucess!")
+        } catch (error) {
+            return response.json(error);
+        }
+    },
+
     async delete(request, response){
         try {
             const id = request.body.id;

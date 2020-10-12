@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text, Alert } from 'react-native';
 
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -11,25 +11,35 @@ import api from '../../../services/api';
 
 export default function Ruas() {
     
+    useEffect(() => {
+        loadRuas();
+    }, []);
+
     const navigation = useNavigation();
 
     const [imoveis, setImoveis] = useState([]);
     const [ruas, setRuas] = useState([]);
 
-    const loadRuas = async () => {
-        const response = await api.get('/imoveis');
-        setImoveis(response.data);
-        imoveis.map((imovel) => {
-            if (!ruas.includes(imovel.rua)) {
-                ruas.push(imovel.rua);
-            }
-        })
-        console.log(ruas);
+    async function refreshingList(){
+
+        await loadRuas();
+
     }
 
-    useEffect(() => {
-        loadRuas();
-    }, []);
+    const loadRuas = async () => {
+        try {
+            const response = await api.get('/imoveis');
+            setImoveis(await response.data);
+            imoveis.map((imovel) => {
+                if (!ruas.includes(imovel.rua)) {
+                    ruas.push(imovel.rua);
+                }
+            })
+        } catch (error) {
+            Alert.alert(error);
+        }
+        
+    }
 
     return(
         <>
@@ -67,7 +77,7 @@ export default function Ruas() {
                         renderItem={({item}) => (
                                 <TouchableOpacity 
                                     style={styles.buttonProp} 
-                                    onPress={() => navigation.navigate("Proprietarios")}
+                                    onPress={() => navigation.navigate("Proprietarios", {rua:item.toString()})}
                                 >
                                     <Text style={styles.textButtonProp}>{item.toString()}</Text>
                                 </TouchableOpacity>

@@ -1,25 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native';
+
+import { View, Text, TouchableOpacity, ScrollView, TextInput, Alert } from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
+
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 import api from '../../../services/api';
+
 export default function Registro({route, navigation}) {
     
     useEffect(() => {
+        loadRegistros();
         loadImovel();
     }, []);
-    //const navigation = useNavigation();
-    const {id} = route.params;
 
-    const [imovel, setImovel] = useState({rua: "="});
+    const id_imovel = parseInt(route.params.id);
 
-    const [ano, setAno] = useState();
-    const [regis, setRegis] = useState();
+    const [imovel, setImovel] = useState({});
+    const [registros, setRegistros] = useState([]);
+
+    const [ano, setAno] = useState("");
+    const [mes, setMes] = useState("");
+    const [talao, setTalao] = useState("");
+    const [anotacao, setAnotacao] = useState("");
+
+    async function handleRegistrar(){
+        try {
+            await api.post('/registros', {
+                id_imovel,
+                ano,
+                mes,
+                talao,
+                anotacao
+            });
+            Alert.alert("Registrado!")
+        } catch (error) {
+            Alert.alert(error);
+        }
+    }
 
     const loadImovel = async () => {
         const response = await api.post("/imovel", {id: id});
         setImovel(response.data);
         console.log(response.data);
+    }
+
+    const loadRegistros = async () => {
+        try {
+            const response = await api.get("/registros/list", {id_imovel});
+            setRegistros(response);
+        } catch (error) {
+            Alert.alert(error);
+        }
     }
 
     return(
@@ -66,7 +97,7 @@ export default function Registro({route, navigation}) {
 
                     <TouchableOpacity 
                         style={styles.buttonEditar} 
-                        onPress={() => navigation.navigate('UpdateImovel')}
+                        onPress={() => navigation.navigate('UpdateImovel', { id:id })}
                     >
                         <Text style={styles.textButtonEdit}>Editar</Text>
                     </TouchableOpacity>
@@ -83,32 +114,34 @@ export default function Registro({route, navigation}) {
                 
                     <Text style={styles.label}>Registros:</Text>
 
-                    
-
                     <View style={styles.boxNewRegistro}>
                         <View style={styles.newRegis}>
-                            <TextInput placeholder={"Ano"} style={styles.ano} value={ano} onChange={(text)=>{setAno(text)}}></TextInput>
-                            <TextInput placeholder={"Registro"} style={styles.regis} value={regis} onChange={(text)=>{setRegis(text)}}></TextInput>
-                            <TouchableOpacity 
-                                style={styles.buttonRegis} 
-                                onPress={() => {}}
-                            >
-                                <Text style={styles.textButtonRegis}>Salvar</Text>
-                            </TouchableOpacity> 
+                            <TextInput placeholder={"Ano"} style={styles.ano} value={ano} onChangeText={(text)=>{setAno(text)}}></TextInput>
+                            <TextInput placeholder={"Mês"} style={styles.regis} value={mes} onChangeText={(text)=>{setMes(text)}}></TextInput>
+                        </View>
+                        <View style={styles.newRegis}>
+                            <TextInput placeholder={"Talao"} style={styles.regis} value={talao} onChangeText={(text)=>{setTalao(text)}}></TextInput>
                         </View>
 
                         <Text style={styles.label}>Anotação:</Text>
-                        <TextInput style={styles.inputAnot}/>
+                        <TextInput placeholder={"Anotação"} style={styles.inputAnot} value={anotacao} onChangeText={(text)=>{setAnotacao(text)}}/>
+
+                        <TouchableOpacity 
+                            style={styles.buttonRegis} 
+                            onPress={handleRegistrar}
+                        >
+                            <Text style={styles.textButtonRegis}>Salvar</Text>
+                        </TouchableOpacity> 
 
                     </View>
 
-                    <TouchableOpacity 
-                        style={styles.buttonPagamento} 
-                        onPress={() => navigation.navigate('Pagamento')}
-                    >
-                        <Text style={styles.textRegistro}>2009: PAG 41 T</Text>
-                    </TouchableOpacity>
-
+                            <TouchableOpacity 
+                                style={styles.buttonPagamento} 
+                                onPress={() => navigation.navigate('Pagamento')}
+                            >
+                                <Text style={styles.textRegistro}>2019 PAG 41</Text>
+                            </TouchableOpacity>
+                    
                 </View>
 
                 <View style={styles.boxDividas}>
