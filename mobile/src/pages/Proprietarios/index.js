@@ -34,9 +34,9 @@ export default function Proprietarios({route, navigation}) {
 
     return(
         <>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+            
                 <View style={styles.container}>
-
+                <ScrollView showsHorizontalScrollIndicator={false}>
                     <View style={styles.buttons}>
                         <TouchableOpacity 
                             style={styles.buttonNew} 
@@ -68,9 +68,9 @@ export default function Proprietarios({route, navigation}) {
                         )}
                     /> 
 
-                                       
+</ScrollView>                 
                 </View>
-            </ScrollView>
+            
         </>
     )
 }

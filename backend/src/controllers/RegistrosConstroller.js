@@ -63,5 +63,15 @@ module.exports = {
         } catch (error) {
             return response.json(error);
         }
+    },
+
+    async registro(request, response){
+        try {
+            const {id_registro} = request.body;
+            const registro = await connection('registros').select('*').where('id', id_registro).first();
+            return response.json(registro);
+        } catch (error) {
+            return response.json(error);
+        }
     }
 }

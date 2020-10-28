@@ -8,12 +8,13 @@ import api from '../../../services/api';
 export default function UpdateImovel({route, navigation}) {
     
     useEffect(() => {
-        loadImovel();
+        setId(parseInt(route.params.id));
+        //loadImovel();
     }, []);
 
-    const [imovel, setImovel] = useState([]);
+    const [imovel, setImovel] = useState({});
 
-    const {id} = route.params;
+    const [id, setId] = useState("");
     const [rua, setRua] = useState(imovel.rua);
     const [num, setNumero] = useState(imovel.num);
     const [local, setLocal] = useState(imovel.local);
@@ -24,8 +25,13 @@ export default function UpdateImovel({route, navigation}) {
     const [anotacao, setAnot] = useState(imovel.anotacao);
 
     const loadImovel = async () => {
-        const response = await api.post("/imovel", {id: id});
-        setImovel(response.data);
+        try {
+            console.log(id);
+            const response = await api.post("/imovel", {id: id});
+            setImovel(response.data);
+        } catch (error) {
+            Alert.alert(error);
+        }
     }
 
     async function handleUpdate(){
@@ -57,40 +63,47 @@ export default function UpdateImovel({route, navigation}) {
                 <Text style={styles.textButtonProp}>Voltar</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity 
+                            style={styles.buttonProp} 
+                            onPress={() => {loadImovel(); loadImovel();}}
+                        >
+                            <Text style={styles.textButtonProp}>Carregar</Text>
+                        </TouchableOpacity>
+
             
             <View style={styles.box}> 
             <ScrollView  showsHorizontalScrollIndicator={false}>
                     <Text style={styles.label}>Rua:</Text>
                     <TextInput onChangeText={(rua)=>{setRua(rua)}} 
-                    value={rua} style={styles.inputLabel}/>
+                    defaultValue={imovel.rua} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Nº:</Text>
                     <TextInput onChangeText={(num)=>{setNumero(num)}} 
-                    value={num} style={styles.inputLabel}/>
+                    defaultValue={imovel.num} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Local do terreno:</Text>
                     <TextInput onChangeText={(local)=>{setLocal(local)}} 
-                    value={local} style={styles.inputLabel}/>
+                    defaultValue={imovel.local} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Tamanho:</Text>
                     <TextInput onChangeText={(tamanho)=>{setTamanho(tamanho)}} 
-                    value={tamanho} style={styles.inputLabel}/>
+                    defaultValue={imovel.tamanho} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Proprietário:</Text>
                     <TextInput onChangeText={(proprietario)=>{setProprietario(proprietario)}} 
-                    value={proprietario} style={styles.inputLabel}/>
+                    defaultValue={imovel.proprietario} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Situação:</Text>
                     <TextInput onChangeText={(situacao)=>{setSituacao(situacao)}} 
-                    value={situacao} style={styles.inputLabel}/>
+                    defaultValue={imovel.situacao} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Início da dívida:</Text>
                     <TextInput onChangeText={(inicio)=>{setInicio(inicio)}} 
-                    value={inicio} style={styles.inputLabel}/>
+                    defaultValue={imovel.inicio} style={styles.inputLabel}/>
 
                     <Text style={styles.label}>Anotação:</Text>
                     <TextInput onChangeText={(anotacao)=>{setAnot(anotacao)}} 
-                    value={anotacao} style={styles.inputAnot}/>
+                    defaultValue={imovel.anotacao} style={styles.inputAnot}/>
 
                     <TouchableOpacity 
                         style={styles.buttonEditar} 

@@ -5,12 +5,15 @@ export default StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#F5F5F5'
+        backgroundColor: '#f5f5f5'
     },
 
     buttons: {
+        width: '98%',
+        height: 90,
         justifyContent: 'space-between',
         flexDirection: 'row',
+        backgroundColor: '#f5f5f5'
     },
 
     buttonNew:{
@@ -19,7 +22,16 @@ export default StyleSheet.create({
         margin: 10,
         borderRadius: 8,
         alignItems: 'center',
-        width: '45%',
+        width: '46%',
+      },
+
+      buttonLoad:{
+        backgroundColor: '#9c0000',
+        padding: 20,
+        margin: 10,
+        borderRadius: 8,
+        alignItems: 'center',
+        width: '95%',
       },
     
       textButtonNew: {

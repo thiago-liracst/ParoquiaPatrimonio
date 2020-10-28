@@ -43,15 +43,19 @@ export default function Ruas() {
 
     return(
         <>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-                <View style={styles.container}>
+            <TouchableOpacity 
+                style={styles.buttonLoad} 
+                onPress={() => {loadRuas()}}
+            >
+                <Text style={styles.textButtonNew}>Carregar</Text>
+            </TouchableOpacity>
+
+            
                 
-                    <TouchableOpacity 
-                            style={styles.buttonNew} 
-                            onPress={() => {loadRuas()}}
-                    >
-                            <Text style={styles.textButtonNew}>Carregar</Text>
-                    </TouchableOpacity>
+                
+                <View style={styles.container}>
+                    <ScrollView showsHorizontalScrollIndicator={false}>    
+                    
 
                     <View style={styles.buttons}>
                         <TouchableOpacity 
@@ -84,9 +88,13 @@ export default function Ruas() {
                         )}
                     /> 
 
-                                       
+</ScrollView>                           
                 </View>
-            </ScrollView>
+            
         </>
     )
+
+    /*
+
+    */
 }

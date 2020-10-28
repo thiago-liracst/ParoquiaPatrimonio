@@ -9,11 +9,13 @@ import api from '../../../services/api';
 export default function Registro({route, navigation}) {
     
     useEffect(() => {
-        loadRegistros();
+        //console.log(parseInt(route.params.id));
+        setIdImovel(parseInt(route.params.id));
         loadImovel();
+        loadRegistros();
     }, []);
 
-    const id_imovel = parseInt(route.params.id);
+    const [id_imovel, setIdImovel] = useState("");
 
     const [imovel, setImovel] = useState({});
     const [registros, setRegistros] = useState([]);
@@ -39,15 +41,23 @@ export default function Registro({route, navigation}) {
     }
 
     const loadImovel = async () => {
-        const response = await api.post("/imovel", {id: id});
-        setImovel(response.data);
-        console.log(response.data);
+        try {
+            console.log(id_imovel);
+            const response = await api.post("/imovel", {id: id_imovel});
+            setImovel(response.data);
+            loadRegistros();
+            loadRegistros();
+            //window.location.reload();
+        } catch (error) {
+            Alert.alert(error);
+        }
     }
 
     const loadRegistros = async () => {
         try {
-            const response = await api.get("/registros/list", {id_imovel});
-            setRegistros(response);
+            console.log(id_imovel);
+            const response = await api.post("/registros/list", {id_imovel: id_imovel});
+            setRegistros(response.data);
         } catch (error) {
             Alert.alert(error);
         }
@@ -62,6 +72,13 @@ export default function Registro({route, navigation}) {
             >
                 <Text style={styles.textButtonProp}>Voltar</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity 
+                            style={styles.buttonProp} 
+                            onPress={() => {loadImovel(); loadImovel();}}
+                        >
+                            <Text style={styles.textButtonProp}>Carregar</Text>
+                        </TouchableOpacity>
 
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <View style={styles.box}> 
@@ -97,7 +114,7 @@ export default function Registro({route, navigation}) {
 
                     <TouchableOpacity 
                         style={styles.buttonEditar} 
-                        onPress={() => navigation.navigate('UpdateImovel', { id:id })}
+                        onPress={() => navigation.navigate('UpdateImovel', { id:id_imovel })}
                     >
                         <Text style={styles.textButtonEdit}>Editar</Text>
                     </TouchableOpacity>
@@ -135,12 +152,20 @@ export default function Registro({route, navigation}) {
 
                     </View>
 
+                    <FlatList 
+                        keyExtractor={item => item.id.toString()}
+                        data={registros}
+                        showsHorizontalScrollIndicator={false} 
+                        extraData={registros}
+                        renderItem={({item}) => (
                             <TouchableOpacity 
                                 style={styles.buttonPagamento} 
-                                onPress={() => navigation.navigate('Pagamento')}
+                                onPress={() => navigation.navigate('Pagamento', {id_registro: item.id})}
                             >
-                                <Text style={styles.textRegistro}>2019 PAG 41</Text>
+                                <Text style={styles.textRegistro}>{item.ano} {item.talao}</Text>
                             </TouchableOpacity>
+                        )}
+                    /> 
                     
                 </View>
 

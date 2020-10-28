@@ -18,6 +18,8 @@ routes.post('/registros/list', RegistrosConstroller.listSpecific);
 routes.put('/registros', RegistrosConstroller.addAnot);
 routes.post('/registros/delete', RegistrosConstroller.delete);
 
+routes.post('/registro', RegistrosConstroller.registro);
+
 routes.post('/cobrancas', ImoveisController.cobrancas);
 
 module.exports = routes;

@@ -5,12 +5,12 @@ export default StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#f5f5f5',
     },
 
     box: {
         width: '91%',
-        height: 415,
+        height: 480,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
@@ -47,7 +47,7 @@ export default StyleSheet.create({
 
     boxAnot: {
         width: '91%',
-        height: 150,
+        height: 350,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
