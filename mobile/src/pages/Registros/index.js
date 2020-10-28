@@ -68,7 +68,7 @@ export default function Registro({route, navigation}) {
             
             <TouchableOpacity 
                 style={styles.buttonProp} 
-                onPress={() => navigation.navigate("Imoveis")}
+                onPress={() => navigation.goBack()}
             >
                 <Text style={styles.textButtonProp}>Voltar</Text>
             </TouchableOpacity>

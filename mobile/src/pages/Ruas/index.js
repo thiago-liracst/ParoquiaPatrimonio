@@ -20,12 +20,6 @@ export default function Ruas() {
     const [imoveis, setImoveis] = useState([]);
     const [ruas, setRuas] = useState([]);
 
-    async function refreshingList(){
-
-        await loadRuas();
-
-    }
-
     const loadRuas = async () => {
         try {
             const response = await api.get('/imoveis');
