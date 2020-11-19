@@ -19,6 +19,7 @@ export default function Registro({route, navigation}) {
 
     const [imovel, setImovel] = useState({});
     const [registros, setRegistros] = useState([]);
+    const [dividas, setDividas] = useState([]);
 
     const [ano, setAno] = useState("");
     const [mes, setMes] = useState("");
@@ -47,6 +48,8 @@ export default function Registro({route, navigation}) {
             setImovel(response.data);
             loadRegistros();
             loadRegistros();
+            loadDividas();
+            loadDividas();
             //window.location.reload();
         } catch (error) {
             Alert.alert(error);
@@ -58,6 +61,33 @@ export default function Registro({route, navigation}) {
             console.log(id_imovel);
             const response = await api.post("/registros/list", {id_imovel: id_imovel});
             setRegistros(response.data);
+        } catch (error) {
+            Alert.alert(error);
+        }
+    }
+
+    const loadDividas = async () => {
+        try {
+            const ano = new Date().getFullYear();
+            let anos = [];
+            let pagos = [];
+            for (let index = ano; index >= ano-11; index--) {
+                anos.push(index);
+            }
+            
+            const response = await api.post("/registros/list", {id_imovel: id_imovel});
+            response.data.map((registro) => {
+                pagos.push(registro.ano);
+            });
+            anos = anos.filter((ano) => {
+                if (pagos.includes(ano)) {
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+            setDividas(anos);
+            console.log(dividas);
         } catch (error) {
             Alert.alert(error);
         }
@@ -173,45 +203,17 @@ export default function Registro({route, navigation}) {
                     <ScrollView  showsHorizontalScrollIndicator={false}>
                     <Text style={styles.label}>Dividas:</Text>
 
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2019</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2018</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2017</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2016</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2015</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2014</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2013</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2012</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2011</Text>
-                    </View>
-
-                    <View style={styles.infoRegis}>
-                        <Text style={styles.textRegistro}>2010</Text>
-                    </View>
+                    <FlatList 
+                        keyExtractor={item => item.toString()}
+                        data={dividas}
+                        showsHorizontalScrollIndicator={false} 
+                        extraData={dividas}
+                        renderItem={({item}) => (
+                            <View style={styles.infoRegis}>
+                                <Text style={styles.textRegistro}>{item}</Text>
+                            </View>
+                        )}
+                    /> 
                     </ScrollView>
                 </View>
             </ScrollView>
