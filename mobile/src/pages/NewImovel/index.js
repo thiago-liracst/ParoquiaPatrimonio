@@ -23,11 +23,11 @@ export default function NewImovel() {
     async function handleCreate(){
         try {
             await api.post('/imoveis', {
-                rua,
+                rua: rua.toUpperCase(),
                 num,
                 local,
                 tamanho,
-                proprietario,
+                proprietario: proprietario.toUpperCase(),
                 situacao,
                 inicio,
                 anotacao,

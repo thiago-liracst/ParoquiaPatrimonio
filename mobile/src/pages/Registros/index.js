@@ -135,7 +135,7 @@ export default function Registro({route, navigation}) {
                     </View>
                     <Text style={styles.label}>Situação:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>Falta os último 10 anos</Text>
+                        <Text style={styles.infoText}>{imovel.situacao}</Text>
                     </View>
                     <Text style={styles.label}>Inicio da dívida:</Text>
                     <View style={styles.infoView}>

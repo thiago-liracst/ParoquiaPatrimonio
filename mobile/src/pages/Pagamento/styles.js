@@ -8,6 +8,14 @@ export default StyleSheet.create({
         backgroundColor: '#f5f5f5',
     },
 
+    buttons: {
+        width: '93%',
+        height: 90,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        backgroundColor: '#f5f5f5'
+    },
+
     box: {
         width: '91%',
         height: 480,
@@ -15,6 +23,22 @@ export default StyleSheet.create({
         borderRadius: 8,
         margin: 10,
     },
+
+    buttonNew:{
+        backgroundColor: '#9c0000',
+        padding: 20,
+        margin: 10,
+        borderRadius: 8,
+        alignItems: 'center',
+        width: '46%',
+      },
+    
+      textButtonNew: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 3,
+      },
 
     buttonProp: {
         backgroundColor: 'white',

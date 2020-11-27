@@ -27,6 +27,18 @@ export default function Pagamento({route, navigation}) {
         }
     }
 
+    const deletarRegistro = async (id) => {
+        try {
+            await api.post("/registros/delete", {id}).then(() => {
+                Alert.alert("Registro deletado!");
+            }).catch(() => {
+                throw new Error("Falha ao deletar regsitro");
+            })
+        } catch (error) {
+            Alert.alert(error);
+        }
+    }
+
     return (
         <View style={styles.container}>
             
@@ -37,12 +49,21 @@ export default function Pagamento({route, navigation}) {
                 <Text style={styles.textButtonProp}>Voltar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                            style={styles.buttonProp} 
+            <View style={styles.buttons}>
+                        <TouchableOpacity 
+                            style={styles.buttonNew} 
                             onPress={() => {loadRegistro(); loadRegistro();}}
                         >
-                            <Text style={styles.textButtonProp}>Carregar</Text>
+                            <Text style={styles.textButtonNew}>Carregar</Text>
                         </TouchableOpacity>
+
+                        <TouchableOpacity 
+                            style={styles.buttonNew} 
+                            onPress={() => {deletarRegistro(registro.id)}}
+                        >
+                            <Text style={styles.textButtonNew}>Deletar</Text>
+                        </TouchableOpacity>
+                    </View>
 
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <View style={styles.box}> 
@@ -71,13 +92,7 @@ export default function Pagamento({route, navigation}) {
                 <View style={styles.boxAnot}>
                     <Text style={styles.label}>Anotação:</Text>
                     <View style={styles.infoView}>
-                        <Text style={styles.infoText}>IMPOSTO DE LAUDEMIO -
-                            VENDEDOR; BANCO BRADESCO S/A
-                            COMPRADOR; ANTONIO RAMALHO DE FREITAS
-                            VALOR AVALIDO 25.900,00
-                            VALOR PAGO:647,00
-                            20/02/2019.
-                        </Text>
+                        <Text style={styles.infoText}>{registro.anotacao}</Text>
                     </View>
                 </View>
 
