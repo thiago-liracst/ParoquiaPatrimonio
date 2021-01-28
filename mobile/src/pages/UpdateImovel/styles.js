@@ -10,7 +10,7 @@ export default StyleSheet.create({
 
     box: {
         width: '91%',
-        height: 500,
+        height: 435,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,

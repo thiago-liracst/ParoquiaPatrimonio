@@ -26,6 +26,7 @@ export default function Proprietarios({route, navigation}) {
             }
         })
         console.log(proprietarios);
+
     }
 
     useEffect(() => {
