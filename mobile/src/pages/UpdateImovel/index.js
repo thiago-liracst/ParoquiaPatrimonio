@@ -9,7 +9,9 @@ export default function UpdateImovel({route, navigation}) {
     
     useEffect(() => {
         setId(parseInt(route.params.id));
-        //loadImovel();
+        loadImovel();
+        loadImovel();
+        loadImovel();
     }, []);
 
     const [imovel, setImovel] = useState({});

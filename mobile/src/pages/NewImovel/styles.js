@@ -26,7 +26,7 @@ export default StyleSheet.create({
 
     buttonProp: {
         backgroundColor: 'white',
-        padding: 30,
+        padding: 20,
         margin: 10,
         borderRadius: 8,
         width: '91%',

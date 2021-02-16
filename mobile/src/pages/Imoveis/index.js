@@ -29,6 +29,8 @@ export default function Imoveis({route, navigation}) {
     }
 
     useEffect(() => {
+        loadImoveis(); 
+        loadImoveis();
         loadImoveis();
     }, []);
 
@@ -36,13 +38,18 @@ export default function Imoveis({route, navigation}) {
         <>
             
                 <View style={styles.container}>
+                <Text style={{
+                    fontSize: 30,
+                    alignSelf: 'center',
+                    marginTop: 10,
+                }}>Imóveis</Text>
                 <ScrollView showsHorizontalScrollIndicator={false}>
                     <View style={styles.buttons}>
                         <TouchableOpacity 
                             style={styles.buttonNew} 
                             onPress={() => navigation.navigate("Proprietarios")}
                         >
-                            <Text style={styles.textButtonNew}>Voltar</Text>
+                            <Text style={styles.textButtonNew}>Proprietários</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity 

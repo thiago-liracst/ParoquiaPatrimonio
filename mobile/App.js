@@ -8,8 +8,6 @@ export default function App() {
   return (
     <>
       <View style={container.header}>
-        <Text style={container.headerText}>Paróquia Sagrada Família</Text>
-        <Image style={container.logo} source={require('./src/assets/SagradaFamilia.png')} />
       </View>
 
       <View style={container.body}> 
@@ -24,7 +22,7 @@ const container = StyleSheet.create({
   header:{
     backgroundColor: '#9c0000',
     width: '100%',
-    height: 184,
+    height: 60,
     alignItems: 'center',
   },
 

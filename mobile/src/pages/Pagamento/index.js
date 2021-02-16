@@ -14,6 +14,8 @@ export default function Pagamento({route, navigation}) {
         setIdRegistro(parseInt(route.params.id_registro));
         console.log(id_registro)
         loadRegistro();
+        loadRegistro();
+        loadRegistro();
     }, []);
 
     const loadRegistro = async () => {
@@ -58,10 +60,10 @@ export default function Pagamento({route, navigation}) {
                         </TouchableOpacity>
 
                         <TouchableOpacity 
-                            style={styles.buttonNew} 
+                            style={styles.buttonDelete} 
                             onPress={() => {deletarRegistro(registro.id)}}
                         >
-                            <Text style={styles.textButtonNew}>Deletar</Text>
+                            <Text style={styles.textButtonRemove}>Deletar!!!</Text>
                         </TouchableOpacity>
                     </View>
 

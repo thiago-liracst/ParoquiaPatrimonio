@@ -24,8 +24,26 @@ export default StyleSheet.create({
         margin: 10,
     },
 
+    textButtonRemove:{
+        color: 'red',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 3,
+    },
+
     buttonNew:{
         backgroundColor: '#9c0000',
+        padding: 20,
+        margin: 10,
+        borderRadius: 8,
+        alignItems: 'center',
+        width: '46%',
+      },
+
+    buttonDelete:{
+        backgroundColor: 'white',
+        borderColor: 'red',
+        borderWidth: 2,
         padding: 20,
         margin: 10,
         borderRadius: 8,
@@ -42,7 +60,7 @@ export default StyleSheet.create({
 
     buttonProp: {
         backgroundColor: 'white',
-        padding: 30,
+        padding: 20,
         margin: 10,
         borderRadius: 8,
         width: '91%',

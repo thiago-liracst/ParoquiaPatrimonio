@@ -4,7 +4,7 @@ export default StyleSheet.create({
     
     container: {
         width: '100%',
-        height: '65%',
+        height: '90%',
         backgroundColor: '#f5f5f5'
     },
 
@@ -43,7 +43,7 @@ export default StyleSheet.create({
 
     buttonProp: {
         backgroundColor: 'white',
-        padding: 30,
+        padding: 20,
         margin: 10,
         borderRadius: 8,
     },
