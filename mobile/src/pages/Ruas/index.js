@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, ScrollView, TouchableOpacity, Text, Alert } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text, Alert, TextInput } from 'react-native';
 
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -19,6 +19,7 @@ export default function Ruas() {
 
     const [imoveis, setImoveis] = useState([]);
     const [ruas, setRuas] = useState([]);
+    const [search, setSearch] = useState("");
 
     const loadRuas = async () => {
         try {
@@ -35,6 +36,12 @@ export default function Ruas() {
         
     }
 
+    const searchArray = (prop, search) => {
+        return prop.filter((item) => {
+            return item.toUpperCase().match(search.toUpperCase());
+        });
+    }
+
     return(
         <>
             <TouchableOpacity 
@@ -44,9 +51,6 @@ export default function Ruas() {
                 <Text style={styles.textButtonNew}>Carregar</Text>
             </TouchableOpacity>
 
-            
-                
-                
                 <View style={styles.container}>
                     <ScrollView showsHorizontalScrollIndicator={false}>    
                     
@@ -67,15 +71,32 @@ export default function Ruas() {
                         </TouchableOpacity>
                     </View>
 
+                    <View style={{
+                        marginLeft: 12,
+                        backgroundColor: "white",
+                        borderRadius: 8,
+                        height: 40,
+                        justifyContent: 'center',
+                        marginTop: 10,
+                        marginBottom: 10
+                    }}>
+                        <TextInput 
+                            style={{marginLeft: 10}} 
+                            placeholder={"Buscar rua"}
+                            onChangeText={(e) => setSearch(e)}
+                            value={search}
+                        />
+                    </View>
+
                     <FlatList 
                         keyExtractor={item => item.toString()}
-                        data={ruas}
+                        data={searchArray(ruas, search)}
                         showsHorizontalScrollIndicator={false} 
                         extraData={ruas}
                         renderItem={({item}) => (
                                 <TouchableOpacity 
                                     style={styles.buttonProp} 
-                                    onPress={() => navigation.navigate("Proprietarios", {rua:item.toString()})}
+                                    onPress={() => navigation.navigate("Proprietarios", {rua:item.toString(), imoveis:imoveis})}
                                 >
                                     <Text style={styles.textButtonProp}>{item.toString()}</Text>
                                 </TouchableOpacity>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, TextInput, ScrollView, Alert } from 'react-native';
 
 import styles from './styles';
@@ -7,9 +7,9 @@ import { useNavigation } from '@react-navigation/native';
 
 import api from '../../../services/api';
 
-export default function NewImovel() {
+export default function NewImovel({route, navigation}) {
     
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
     const [rua, setRua] = useState("");
     const [num, setNumero] = useState("");
@@ -17,8 +17,17 @@ export default function NewImovel() {
     const [tamanho, setTamanho] = useState("");
     const [proprietario, setProprietario] = useState("");
     const [situacao, setSituacao] = useState("");
-    const [inicio, setInicio] = useState("");
+    const [inicio, setInicio] = useState("")
     const [anotacao, setAnot] = useState("");
+
+    useEffect(() => {
+        try {
+            const ruaaux = route.params.rua;
+            setRua(ruaaux)
+        } catch (error) {
+            console.log(error)
+        }
+    }, []);
 
     async function handleCreate(){
         try {

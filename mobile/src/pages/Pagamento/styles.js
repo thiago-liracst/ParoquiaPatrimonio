@@ -4,12 +4,12 @@ export default StyleSheet.create({
     
     container: {
         width: '100%',
-        height: '75%',
-        backgroundColor: '#f5f5f5',
+        height: '100%',
+        backgroundColor: '#333',
     },
 
     buttons: {
-        width: '93%',
+        width: '100%',
         height: 90,
         justifyContent: 'space-between',
         flexDirection: 'row',
@@ -17,8 +17,8 @@ export default StyleSheet.create({
     },
 
     box: {
-        width: '91%',
-        height: 480,
+        width: '97%',
+        height: 520,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
@@ -45,7 +45,7 @@ export default StyleSheet.create({
         padding: 30,
         margin: 10,
         borderRadius: 8,
-        width: '91%',
+        width: '97%',
     },
 
     textButtonProp: {
@@ -70,7 +70,7 @@ export default StyleSheet.create({
     },
 
     boxAnot: {
-        width: '91%',
+        width: '97%',
         height: 350,
         backgroundColor: '#FFF',
         borderRadius: 8,

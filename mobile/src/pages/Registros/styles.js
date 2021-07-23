@@ -3,14 +3,13 @@ import { StyleSheet} from 'react-native';
 export default StyleSheet.create({
     
     container: {
-        width: '100%',
-        height: '75%',
-        backgroundColor: '#F5F5F5',
+        width: '107%',
+        height: '86%',
+        backgroundColor: '#f5f5f5',
     },
 
     box: {
         width: '91%',
-        height: 760,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
@@ -26,7 +25,7 @@ export default StyleSheet.create({
 
     boxAnot: {
         width: '91%',
-        height: 150,
+        height: 200,
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
@@ -52,6 +51,7 @@ export default StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 20,
+        marginBottom: 10,
         borderRadius: 8,
         width: '96%',
         alignItems: 'center',
@@ -143,7 +143,8 @@ export default StyleSheet.create({
         height: 30,
         width: '19%',
         borderRadius: 5,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginLeft: 10
     },
 
     inputAnot: {

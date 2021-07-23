@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text, TextInput } from 'react-native';
 
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -13,20 +13,28 @@ export default function Proprietarios({route, navigation}) {
     
     //const navigation = useNavigation();
 
-    const [imoveis, setImoveis] = useState([]);
+    const [imoveis, setImoveis] = useState(route.params.imoveis);
     const [proprietarios, setProprietarios] = useState([]);
     const {rua} = route.params;
+    const [search, setSearch] = useState("");
 
     const loadProprietarios = async () => {
         const response = await api.get('/imoveis');
         setImoveis(response.data);
+
         imoveis.map((imovel) => {
-            if (!proprietarios.includes(imovel.proprietario) && imovel.rua === rua) {
-                proprietarios.push(imovel.proprietario);
+            const imv = {num: imovel.num, proprietario:imovel.proprietario}
+            if (!proprietarios.includes(imv) && imovel.rua === rua) {
+                proprietarios.push(imv);
             }
         })
-        console.log(proprietarios);
 
+    }
+
+    const searchArray = (prop, search) => {
+        return prop.filter((item) => {
+            return item.num.toString().toUpperCase().match(search.toUpperCase());
+        });
     }
 
     useEffect(() => {
@@ -52,19 +60,44 @@ export default function Proprietarios({route, navigation}) {
                         >
                             <Text style={styles.textButtonNew}>Carregar</Text>
                         </TouchableOpacity>
+                        
+                    </View>
+
+                    <TouchableOpacity 
+                        style={styles.buttonNewImovel} 
+                        onPress={() => navigation.navigate("NewImovel", {rua: rua})}
+                    >
+                        <Text style={styles.textButtonNew}>Novo Imóvel</Text>
+                    </TouchableOpacity>
+
+                    <View style={{
+                        marginLeft: 12,
+                        backgroundColor: "white",
+                        borderRadius: 8,
+                        height: 40,
+                        justifyContent: 'center',
+                        marginTop: 10,
+                        marginBottom: 10
+                    }}>
+                        <TextInput 
+                            style={{marginLeft: 10}} 
+                            placeholder={"Buscar número"}
+                            onChangeText={(e) => setSearch(e)}
+                            value={search}
+                        />
                     </View>
 
                     <FlatList 
                         keyExtractor={item => item.toString()}
-                        data={proprietarios}
+                        data={searchArray(proprietarios, search)}
                         showsHorizontalScrollIndicator={false} 
                         extraData={proprietarios}
                         renderItem={({item}) => (
                                 <TouchableOpacity 
                                     style={styles.buttonProp} 
-                                    onPress={() => navigation.navigate("Imoveis", {proprietario: item.toString()})}
+                                    onPress={() => navigation.navigate("Imoveis", {proprietario: item.proprietario.toString()})}
                                 >
-                                    <Text style={styles.textButtonProp}>{item.toString()}</Text>
+                                    <Text style={styles.textButtonProp}>{item.num.toString()+" - "+item.proprietario.toString()}</Text>
                                 </TouchableOpacity>
                         )}
                     /> 

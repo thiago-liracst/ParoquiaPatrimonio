@@ -25,7 +25,7 @@ export default function Imoveis({route, navigation}) {
                 ids.push(imovel.id);
             }
         })
-        console.log(imoveisEspecificos);
+        //console.log(imoveisEspecificos);
     }
 
     useEffect(() => {
