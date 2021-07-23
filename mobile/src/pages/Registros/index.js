@@ -43,7 +43,7 @@ export default function Registro({route, navigation}) {
 
     const loadImovel = async () => {
         try {
-            console.log(id_imovel);
+            //console.log(id_imovel);
             const response = await api.post("/imovel", {id: id_imovel});
             setImovel(response.data);
             loadRegistros();
@@ -58,7 +58,7 @@ export default function Registro({route, navigation}) {
 
     const loadRegistros = async () => {
         try {
-            console.log(id_imovel);
+            //console.log(id_imovel);
             const response = await api.post("/registros/list", {id_imovel: id_imovel});
             setRegistros(response.data);
         } catch (error) {
@@ -87,7 +87,7 @@ export default function Registro({route, navigation}) {
                 }
             });
             setDividas(anos);
-            console.log(dividas);
+            //console.log(dividas);
         } catch (error) {
             Alert.alert(error);
         }
@@ -104,11 +104,11 @@ export default function Registro({route, navigation}) {
             </TouchableOpacity>
 
             <TouchableOpacity 
-                            style={styles.buttonProp} 
-                            onPress={() => {loadImovel(); loadImovel();}}
-                        >
-                            <Text style={styles.textButtonProp}>Carregar</Text>
-                        </TouchableOpacity>
+                style={styles.buttonProp} 
+                onPress={() => {loadImovel(); loadImovel();}}
+            >
+                <Text style={styles.textButtonProp}>Carregar</Text>
+            </TouchableOpacity>
 
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <View style={styles.box}> 

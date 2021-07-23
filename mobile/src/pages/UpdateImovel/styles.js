@@ -5,15 +5,33 @@ export default StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#f5f5f5',
     },
 
     box: {
-        width: '91%',
-        height: 435,
+        width: '97%',
+        height: '67%',
         backgroundColor: '#FFF',
         borderRadius: 8,
         margin: 10,
+    },
+
+    buttons: {
+        width: '100%',
+        height: 100,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        backgroundColor: '#f5f5f5'
+    },
+
+    button: {
+        backgroundColor: 'white',
+        padding: 30,
+        margin: 10,
+        borderRadius: 8,
+        width: '47%',
+        height: 80,
+        alignItems: 'center'
     },
 
     boxAnot: {
@@ -29,7 +47,7 @@ export default StyleSheet.create({
         padding: 30,
         margin: 10,
         borderRadius: 8,
-        width: '91%',
+        width: '97%',
     },
 
     textButtonProp: {

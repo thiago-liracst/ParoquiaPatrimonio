@@ -57,7 +57,7 @@ export default function Cobranca() {
                 });
             })
             
-            console.log(registros)    
+            //console.log(registros)    
         } catch (error) {
             Alert.alert(error);
         }

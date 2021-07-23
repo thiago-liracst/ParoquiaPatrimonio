@@ -4,8 +4,8 @@ export default StyleSheet.create({
     
     container: {
         width: '100%',
-        height: '75%',
-        backgroundColor: '#333'
+        height: '85%',
+        backgroundColor: '#f5f5f5'
     },
 
     buttons: {
@@ -22,6 +22,15 @@ export default StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
         width: '45%',
+      },
+
+      buttonNewImovel:{
+        backgroundColor: '#9c0000',
+        padding: 20,
+        margin: 10,
+        borderRadius: 8,
+        alignItems: 'center',
+        width: '95%',
       },
     
       textButtonNew: {

@@ -12,7 +12,7 @@ export default function Pagamento({route, navigation}) {
 
     useEffect(() => {
         setIdRegistro(parseInt(route.params.id_registro));
-        console.log(id_registro)
+        //console.log(id_registro)
         loadRegistro();
     }, []);
 

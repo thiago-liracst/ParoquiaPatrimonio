@@ -26,9 +26,19 @@ export default function UpdateImovel({route, navigation}) {
 
     const loadImovel = async () => {
         try {
-            console.log(id);
+            //console.log(id);
             const response = await api.post("/imovel", {id: id});
             setImovel(response.data);
+        } catch (error) {
+            Alert.alert(error);
+        }
+    }
+
+    const deleteImovel = async () => {
+        try {
+            await api.post("/imoveis/delete", {id: id}).then(
+                Alert.alert("Deletado")
+            )
         } catch (error) {
             Alert.alert(error);
         }
@@ -63,12 +73,20 @@ export default function UpdateImovel({route, navigation}) {
                 <Text style={styles.textButtonProp}>Voltar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                            style={styles.buttonProp} 
-                            onPress={() => {loadImovel(); loadImovel();}}
-                        >
-                            <Text style={styles.textButtonProp}>Carregar</Text>
-                        </TouchableOpacity>
+            <View style={styles.buttons}>
+                <TouchableOpacity 
+                    style={styles.button} 
+                    onPress={() => {deleteImovel()}}
+                >
+                    <Text style={styles.textButtonProp}>Deletar Imóvel</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.button} 
+                    onPress={() => {loadImovel(); loadImovel();}}
+                >
+                    <Text style={styles.textButtonProp}>Carregar</Text>
+                </TouchableOpacity>
+            </View>
 
             
             <View style={styles.box}> 
