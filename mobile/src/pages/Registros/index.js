@@ -71,7 +71,7 @@ export default function Registro({route, navigation}) {
             const ano = new Date().getFullYear();
             let anos = [];
             let pagos = [];
-            for (let index = ano; index >= ano-11; index--) {
+            for (let index = ano-1; index >= ano-11; index--) {
                 anos.push(index);
             }
             
