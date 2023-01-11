@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "knex": "^0.21.5",
+    "knex": "^2.4.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",
     "sqlite3": "^5.0.0"
